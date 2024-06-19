@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BenefitController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmploymentStatusController;
 use App\Http\Controllers\PayrollController;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::resource('/department', DepartmentController::class);
 Route::resource('/position', PositionController::class);
 Route::resource('/employee', EmployeeController::class);
 Route::resource('/benefit', BenefitController::class);
