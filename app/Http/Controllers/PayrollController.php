@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\SimpleCRUDHelper;
+use App\Http\Resources\PayrollResource;
 use App\Models\Payroll;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class PayrollController extends Controller
      */
     public function index(): JsonResponse
     {
-        return $this->crud->index();
+        return $this->crud->index(PayrollResource::class);
     }
 
     /**
@@ -43,7 +44,7 @@ class PayrollController extends Controller
      */
     public function show(string $id): JsonResponse
     {
-        return $this->crud->show($id);
+        return $this->crud->show($id, PayrollResource::class);
     }
 
     /**
@@ -59,7 +60,7 @@ class PayrollController extends Controller
      */
     public function update(Request $request, string $id): JsonResponse
     {
-        return $this->crud->update($request, $id);
+        return $this->crud->update($request, $id, PayrollResource::class);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\SimpleCRUDHelper;
+use App\Http\Resources\EmploymentStatusResource;
 use App\Models\Employment_status;
 use App\Models\EmploymentStatus;
 use Illuminate\Http\JsonResponse;
@@ -20,7 +21,7 @@ class EmploymentStatusController extends Controller
      */
     public function index(): JsonResponse
     {
-        return $this->crud->index();
+        return $this->crud->index(EmploymentStatusResource::class);
     }
 
     /**
@@ -44,7 +45,7 @@ class EmploymentStatusController extends Controller
      */
     public function show(string $id): JsonResponse
     {
-        return $this->crud->show($id);
+        return $this->crud->show($id, EmploymentStatusResource::class);
     }
 
     /**
@@ -60,7 +61,7 @@ class EmploymentStatusController extends Controller
      */
     public function update(Request $request, string $id): JsonResponse
     {
-        return $this->crud->update($request, $id);
+        return $this->crud->update($request, $id, EmploymentStatusResource::class);
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::resource('/department', DepartmentController::class);
 Route::resource('/position', PositionController::class);
 Route::resource('/employee', EmployeeController::class);
